@@ -1,6 +1,6 @@
 # Example of integrate PayPal payment gateway in Laravel 5.5
 
-Steps:
+## Steps:
 
 1 -  install PayPal SDK using composer
 
@@ -207,7 +207,7 @@ Route::get('status', 'PaymentController@getPaymentStatus');
 ```
 
 
-References:
+## References:
 
 https://medium.com/justlaravel/how-to-integrate-paypal-payment-gateway-in-laravel-695063599449
 
