@@ -1,4 +1,4 @@
-Example of integrate PayPal payment gateway in Laravel 5.5
+# Example of integrate PayPal payment gateway in Laravel 5.5
 
 Steps:
 
@@ -10,12 +10,15 @@ composer require paypal/rest-api-sdk-php
 
 3 - Copy and paste client_id and secret keys inside .env file:
 
+```
 PAYPAL_CLIENT_ID=
 PAYPAL_SECRET=
 PAYPAL_MODE=sandbox
+```
 
 4 - Create a new file paypal.php, at \config directory, and put this content:
 
+```
 <?php 
 return [ 
     'client_id' => env('PAYPAL_CLIENT_ID',''),
@@ -28,11 +31,12 @@ return [
         'log.LogLevel' => 'ERROR'
     ),
 ];
+```
 
 5 - Create a view (paywithpaypal.blade.php), in my example a simple form with amount field:
 
 
-
+```
 <html>
 <head>
 
@@ -66,10 +70,11 @@ return [
     
 </body>
 </html>
-              
+```              
 
 6. Create a new controller (PaymentController)to manage all the PayPal related PHP stuff: 
 
+```
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
@@ -189,14 +194,17 @@ class PaymentController extends Controller
         return Redirect::to('/');
     }
 }
+```
 
 7. Add this lines inside /routes/web.php:
 
+```
 Route::get('/', 'PaymentController@index');
 // route for processing payment
 Route::post('paypal', 'PaymentController@payWithpaypal');
 // route for check status of the payment
 Route::get('status', 'PaymentController@getPaymentStatus');
+```
 
 
 References:
